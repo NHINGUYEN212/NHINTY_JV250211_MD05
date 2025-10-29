@@ -1,0 +1,25 @@
+<configuration>
+    <!--    các thành phần chịu trách nhiệm ghi log ra ngoài console-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--    các thành phần chịu trách nhiệm ghi log ra file app.log-->
+    <appender name="APP_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>app.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--    xác định cách thức ghi log cho các gói (package) hoặc lớp cụ thể.-->
+    <!-- Logger cho cấp độ INFO -->
+    <logger name="md05_session11" level="INFO" additivity="false">
+        <appender-ref ref="APP_FILE" />
+    </logger>
+
+    <!--Cấu hình không tự động ghi log vào file , chỉ ghi console-->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
